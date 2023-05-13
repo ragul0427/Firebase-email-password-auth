@@ -1,11 +1,12 @@
 //src/service/api.js
-import { getUserData, removeUserData } from "./Storage"
-
-
-export const isAuthenticated = ()=>{
-    return getUserData()!=null?true:false;
+export const storeUserData = (data)=>{
+    localStorage.setItem('idToken',data)
 }
 
-export const logout = ()=>{
-    removeUserData();
+export const getUserData = ()=>{
+    return localStorage.getItem('idToken');
+}
+
+export const removeUserData = ()=>{
+     localStorage.removeItem('idToken')
 }
